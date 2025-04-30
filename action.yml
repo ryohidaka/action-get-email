@@ -9,6 +9,14 @@ branding:
   icon: send
 
 inputs:
+  token:
+    description: "GitHub Token for API access"
+    required: true
+
+  username:
+    description: "Target username to retrieve email address (default: current user)"
+    required: false
+    default: $(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
 
 outputs:
 

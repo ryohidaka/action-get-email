@@ -15,13 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: ryohidaka/action-get-email@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Inputs
 
-| Input | Description | Required | Default |
-| ----- | ----------- | -------- | ------- |
-| ``    |             | ✅       | ``      |
+| Input      | Description                               | Required | Default      |
+| ---------- | ----------------------------------------- | -------- | ------------ |
+| `token`    | GitHub Token for API access               | ✅       |              |
+| `username` | Target username to retrieve email address |          | current user |
 
 ## Outputs
 
