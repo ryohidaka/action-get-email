@@ -25,3 +25,13 @@ runs:
   steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Get email
+      id: get_email
+      run: |
+        ${{ github.action_path }}/scripts/get-email.sh \
+          "${{ inputs.username }}" \
+          "$GITHUB_TOKEN"
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+      shell: bash
