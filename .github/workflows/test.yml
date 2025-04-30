@@ -10,5 +10,31 @@ jobs:
   test_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: "./"
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Run the action defined in this repository
+      - name: Run Get Email Action
+        id: get_email
+        uses: ./
+        with:
+          username: ryohidaka
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Check if the email matches the expected value
+      - name: Assert Email
+        run: |
+          # Expected email
+          expected="39184410+ryohidaka@users.noreply.github.com"
+
+          # Actual email from the action output
+          actual="${{ steps.get_email.outputs.email }}"
+
+          echo "::debug::Expected: $expected"
+          echo "::debug::Actual: $actual"
+
+          # Fail if the expected and actual email do not match
+          if [ "$actual" != "$expected" ]; then
+            echo "::error title=Assertion Failed::Expected '$expected' but got '$actual'"
+            exit 1
+          fi
