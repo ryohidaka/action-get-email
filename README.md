@@ -28,6 +28,6 @@ jobs:
 
 ## Outputs
 
-| Output | Description | Example |
-| ------ | ----------- | ------- |
-| ``     |             | ``      |
+| Output  | Description            | Example                                                 |
+| ------- | ---------------------- | ------------------------------------------------------- |
+| `email` | Resolved email address | `41898282+github-actions[bot]@users.noreply.github.com` |

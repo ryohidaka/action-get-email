@@ -19,6 +19,9 @@ inputs:
     default: $(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
 
 outputs:
+  email:
+    description: "Resolved email address"
+    value: ${{ steps.get_email.outputs.email }}
 
 runs:
   using: "composite"
