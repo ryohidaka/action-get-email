@@ -14,9 +14,15 @@ jobs:
   get-email:
     runs-on: ubuntu-latest
     steps:
-      - uses: ryohidaka/action-get-email@v1
+      - name: Run Get Email Action
+        id: get_email
+        uses: ryohidaka/action-get-email@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Show Email
+        run: |
+          echo "${{ steps.get_email.outputs.email }}"
 ```
 
 ## Inputs
