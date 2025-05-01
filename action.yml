@@ -5,8 +5,8 @@ author: "ryohidaka"
 description: "GitHub Actions to get user public email address."
 
 branding:
-  color: green
-  icon: send
+  color: white
+  icon: mail
 
 inputs:
   token:
