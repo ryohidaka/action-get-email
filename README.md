@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Run Get Email Action
         id: get_email
-        uses: ryohidaka/action-get-email@v1
+        uses: ryohidaka/action-get-email@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
